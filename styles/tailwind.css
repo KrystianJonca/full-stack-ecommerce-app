@@ -29,4 +29,7 @@
   .btn-light {
     @apply bg-transparent text-primary-light border-2 border-primary-light text-xl py-2 px-3 hover:bg-primary-light hover:text-primary-dark transition-all duration-300 cursor-pointer;
   }
+  .btn-dark {
+    @apply bg-transparent text-primary-dark border-2 border-primary-dark text-xl py-2 px-3 hover:bg-primary-dark hover:text-primary-light transition-all duration-300 cursor-pointer;
+  }
 }
