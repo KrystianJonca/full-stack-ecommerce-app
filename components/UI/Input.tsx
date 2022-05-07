@@ -17,7 +17,7 @@ const Input: React.FC<IInputProps> = ({ label, name, type, ...rest }) => {
         type={type}
         name={name}
         placeholder=" "
-        className="w-full bg-transparent outline-none border-2 focus:border-primary-light border-gray-400 hover:border-primary-light py-2 px-3 transition-all"
+        className="w-full bg-transparent outline-none border-2 focus:border-primary-light border-gray-200 hover:border-primary-light py-2 px-3 transition-all"
       />
     </div>
   );
