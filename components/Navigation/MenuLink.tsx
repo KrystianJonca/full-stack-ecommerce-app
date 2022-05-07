@@ -9,9 +9,9 @@ interface IMenuLinkProps {
 
 const MenuLink: React.FC<IMenuLinkProps> = ({ href, className, children }) => {
   return (
-    <p className={`${className} font-extralight py-1`}>
+    <p className={`font-extralight py-1`}>
       <Link href={href}>
-        <span className="hover:border-b-2">{children}</span>
+        <span className={`${className} hover:border-b-2 cursor-pointer`}>{children}</span>
       </Link>
     </p>
   );
