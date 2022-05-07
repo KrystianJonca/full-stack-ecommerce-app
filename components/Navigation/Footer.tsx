@@ -3,6 +3,8 @@ import MenuLink from './MenuLink';
 import Image from 'next/image';
 import NewsletterSignUp from './NewsletterSignUp';
 
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-primary-dark text-white p-4">
@@ -60,7 +62,20 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div></div>
+        <div className="flex justify-center items-center text-2xl">
+          <span className="mx-2 hover:scale-125 transition-all">
+            <FaFacebook />
+          </span>
+          <span className="mx-2 hover:scale-125 transition-all">
+            <FaInstagram />
+          </span>
+          <span className="mx-2 hover:scale-125 transition-all">
+            <FaTiktok />
+          </span>
+          <span className="mx-2 hover:scale-125 transition-all">
+            <FaYoutube />
+          </span>
+        </div>
 
         <p className="pt-4 text-center text-sm">
           Formula Lifestyle © 2022, Created & Designed by Krystian
