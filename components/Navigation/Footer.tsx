@@ -63,18 +63,18 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex justify-center items-center text-2xl">
-            <span className="mx-2 hover:scale-125 transition-all">
+            <a href="#" className="mx-2 hover:scale-125 transition-all">
               <FaFacebook />
-            </span>
-            <span className="mx-2 hover:scale-125 transition-all">
+            </a>
+            <a href="#" className="mx-2 hover:scale-125 transition-all">
               <FaInstagram />
-            </span>
-            <span className="mx-2 hover:scale-125 transition-all">
+            </a>
+            <a href="#" className="mx-2 hover:scale-125 transition-all">
               <FaTiktok />
-            </span>
-            <span className="mx-2 hover:scale-125 transition-all">
+            </a>
+            <a href="#" className="mx-2 hover:scale-125 transition-all">
               <FaYoutube />
-            </span>
+            </a>
           </div>
 
           <p className="pt-4 text-center text-sm">
