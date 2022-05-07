@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Titillium+Web:ital,wght@0,400;0,600;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,400;0,600;1,300&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@later base {
+@layer base {
   html,
   body {
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Titilium Web', sans-serif;
   }
 
   a {
@@ -19,5 +19,14 @@
 
   * {
     box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .heading {
+    @apply font-bold text-3xl sm:text-4xl md:text-5xl p-2;
+  }
+  .btn-light {
+    @apply bg-transparent text-primary-light border-2 border-primary-light text-xl py-2 px-3 hover:bg-primary-light hover:text-primary-dark transition-all duration-300 cursor-pointer;
   }
 }
