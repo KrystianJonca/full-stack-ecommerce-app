@@ -3,13 +3,20 @@ import Link from 'next/link';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import MenuLink from './MenuLink';
+import useAuth from '../../hooks/useAuth';
+
 interface ISideNavProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }
 
 const SideNav: React.FC<ISideNavProps> = ({ isOpen, setIsOpen }) => {
+  const { session, signIn, signOut } = useAuth();
+
   const handleClose = () => setIsOpen(false);
+
+  const handleSignIn = () => signIn();
+  const handleSignOut = () => signOut();
 
   return (
     <Transition show={isOpen} as={Fragment}>
@@ -58,9 +65,31 @@ const SideNav: React.FC<ISideNavProps> = ({ isOpen, setIsOpen }) => {
                   </MenuLink>
                 </div>
 
-                <button className="mt-6 btn-dark w-full text-center outline-none">
-                  <Link href="/signin">Sign In</Link>
-                </button>
+                {session ? (
+                  <div>
+                    <p className="mt-4 text-xl text-wrap">
+                      Hello,{' '}
+                      <Link href={`/customers/${session.user.email}`}>
+                        <span className="font-bold hover:border-b-2 border-primary-dark cursor-pointer">
+                          {session.user.email?.substring(0, session.user.email.indexOf('@'))}
+                        </span>
+                      </Link>
+                    </p>
+                    <button
+                      onClick={handleSignOut}
+                      className="mt-6 btn-dark w-full text-center outline-none"
+                    >
+                      Sign out
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={handleSignIn}
+                    className="mt-6 btn-dark w-full text-center outline-none"
+                  >
+                    Sign In
+                  </button>
+                )}
               </div>
             </Dialog.Panel>
           </div>
