@@ -39,3 +39,7 @@ yarn-error.log*
 
 # prisma
 .env
+
+# VS Code, Webstorm
+.vscode
+.idea
