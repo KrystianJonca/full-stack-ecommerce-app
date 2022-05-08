@@ -15,7 +15,6 @@ const SideNav: React.FC<ISideNavProps> = ({ isOpen, setIsOpen }) => {
 
   const handleClose = () => setIsOpen(false);
 
-  const handleSignIn = () => signIn();
   const handleSignOut = () => signOut();
 
   return (
@@ -83,12 +82,9 @@ const SideNav: React.FC<ISideNavProps> = ({ isOpen, setIsOpen }) => {
                     </button>
                   </div>
                 ) : (
-                  <button
-                    onClick={handleSignIn}
-                    className="mt-6 btn-dark w-full text-center outline-none"
-                  >
-                    Sign In
-                  </button>
+                  <Link href="/auth/signin">
+                    <div className="mt-6 btn-dark w-full text-center outline-none">Sign In</div>
+                  </Link>
                 )}
               </div>
             </Dialog.Panel>

@@ -12,5 +12,10 @@ export default NextAuth({
       from: getEnv('EMAIL_FROM'),
     }),
   ],
+  pages: {
+    signIn: '/auth/signin',
+    verifyRequest: '/auth/checkemail',
+    error: '/auth/error',
+  },
   secret: getEnv('SECRET'),
 });
