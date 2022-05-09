@@ -4,7 +4,6 @@ import { Layout } from '../../components';
 import { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/react';
 import { User } from '@prisma/client';
-
 interface Session {
   user: User;
 }
