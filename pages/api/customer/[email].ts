@@ -11,7 +11,21 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const user = await prisma.user.findFirst({
     where: { email: email as string },
-    include: { orders: true },
+    select: {
+      orders: {
+        select: {
+          id: true,
+          shippingAdress: true,
+          fullfilled: true,
+          products: {
+            select: {
+              id: true,
+              image: true,
+            },
+          },
+        },
+      },
+    },
   });
 
   if (user) res.status(200).json(user);
