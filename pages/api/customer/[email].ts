@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import { prisma } from '../../../lib/prisma-client';
+import { withSentry } from '@sentry/nextjs';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.query;
@@ -32,4 +33,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   else res.status(400).json({ error: `User with Email: ${email} not found.` });
 };
 
-export default handler;
+export default withSentry(handler);

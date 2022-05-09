@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../../lib/prisma-client';
+import { withSentry } from '@sentry/nextjs';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;
@@ -14,4 +15,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   else res.status(400).json({ error: `Collection with ID: ${id} not found.` });
 };
 
-export default handler;
+export default withSentry(handler);
