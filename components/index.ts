@@ -4,3 +4,4 @@ export { default as CollectionsList } from './Collections/Collections';
 export { default as ProductInfo } from './Products/ProductInfo';
 export { default as Header } from './Header/Header';
 export { default as BestsellerHighlight } from './Collections/BestsellersHighlight';
+export { default as Orders } from './Orders/Orders';

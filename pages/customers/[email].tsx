@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Layout } from '../../components';
+import { Layout, Orders } from '../../components';
 import { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/react';
 import { User } from '@prisma/client';
+
 interface Session {
   user: User;
 }
@@ -13,7 +14,8 @@ interface ICustomerProps {
 }
 
 const Customer: NextPage<ICustomerProps> = ({ session }) => {
-  console.log(session.user);
+  const email = session.user.email;
+
   return (
     <div>
       <Head>
@@ -21,7 +23,13 @@ const Customer: NextPage<ICustomerProps> = ({ session }) => {
       </Head>
 
       <Layout>
-        <div></div>
+        <div className="max-w-7xl min-h-[50vh] mx-auto my-8">
+          <h2 className="heading">
+            Hello, {session.user.email?.substring(0, session.user.email.indexOf('@'))}
+          </h2>
+          <h3 className="text-xl sm:text-2xl mt-6">Your orders</h3>
+          <Orders email={email as string} />
+        </div>
       </Layout>
     </div>
   );
