@@ -9,7 +9,6 @@ interface IProducts {
 }
 
 const Products: NextPage<IProducts> = ({ products }) => {
-  console.log(products);
   return (
     <div>
       <Head>
