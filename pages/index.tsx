@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Layout } from '../components';
+import { Layout, Header } from '../components';
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <h1 className="font-bold">Hello app!</h1>
+        <Header />
       </Layout>
     </div>
   );
