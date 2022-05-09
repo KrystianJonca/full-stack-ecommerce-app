@@ -1,8 +1,17 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
+import type { Product, Collection } from '@prisma/client';
 import Head from 'next/head';
-import { Layout, Header } from '../components';
+import { Layout, Header, BestsellerHighlight } from '../components';
+import getCollectionProducts from '../lib/collections/getCollectionProducts';
 
-const Home: NextPage = () => {
+interface ICollectionP extends Collection {
+  products: Product[];
+}
+
+interface IHome {
+  bestsellers: ICollectionP;
+}
+const Home: NextPage<IHome> = ({ bestsellers }) => {
   return (
     <div>
       <Head>
@@ -13,9 +22,19 @@ const Home: NextPage = () => {
 
       <Layout>
         <Header />
+        <BestsellerHighlight products={bestsellers.products} />
       </Layout>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const bestsellers = await getCollectionProducts(1); // bestsellers is always 1
+
+  return {
+    props: { bestsellers },
+    revalidate: 60,
+  };
 };
 
 export default Home;
