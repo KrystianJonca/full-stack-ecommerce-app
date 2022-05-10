@@ -42,7 +42,7 @@ const SideNav: React.FC<ISideNavProps> = ({ isOpen, setIsOpen }) => {
           leaveTo="opacity-0"
         >
           <div className="absolute inset-0 overflow-hidden">
-            <Dialog.Panel className="absolute h-screen bg-white inset-0 left-0 shadow-xl w-64 p-4">
+            <Dialog.Panel className="absolute h-screen bg-white inset-0 left-0 shadow-xl w-80 p-4">
               <div className="flex justify-between items-center mb-4">
                 <Dialog.Title className="font-semibold text-lg">Formula Lifestyle</Dialog.Title>
                 <XIcon className="w-8 h-8" onClick={handleClose} />
