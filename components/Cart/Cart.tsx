@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 import CartItems from './CartItems';
 import useCart from '../../hooks/useCart';
+import useCheckout from '../../hooks/useCheckout';
 
 const Cart: React.FC = () => {
   const {
@@ -10,7 +11,10 @@ const Cart: React.FC = () => {
     dispatch,
   } = useCart();
 
+  const { mutate } = useCheckout();
+
   const handleClose = () => dispatch({ type: 'closeCart' });
+  const handleCheckout = () => mutate(products);
 
   return (
     <Transition show={isOpen} as={Fragment}>
@@ -51,7 +55,7 @@ const Cart: React.FC = () => {
                 )}
                 {products.length !== 0 && (
                   <button
-                    onClick={() => console.log('TODO')}
+                    onClick={handleCheckout}
                     className="mt-6 btn-dark w-full text-center outline-none"
                   >
                     Checkout
