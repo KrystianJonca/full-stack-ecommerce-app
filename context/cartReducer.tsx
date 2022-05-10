@@ -17,7 +17,7 @@ export const cartReducer = (state: State, action: Action) => {
       const totalPrice = calculateTotalPrice(newProducts);
 
       return {
-        ...state,
+        isOpen: true,
         products: newProducts,
         totalPrice,
       };
